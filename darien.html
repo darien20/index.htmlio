@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Darien Ashraf — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sand:#F5F0E8;--warm:#EDE5D8;--deep:#1E1A14;--accent:#9B7520;--accent2:#4A7A60;--text:#3A3020;--muted:#8A7D6A;--light:#FDFAF5;--white:#FFFFFF;
+  --font-en:'DM Sans',sans-serif;--font-display:'Cormorant Garamond',serif;--font-ar:'Tajawal',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--light);color:var(--text);font-family:var(--font-en);line-height:1.6;transition:font-family 0.2s}
+body.ar{font-family:var(--font-ar);direction:rtl}
+.en-text{display:block}.ar-text{display:none}
+body.ar .en-text{display:none}
+body.ar .ar-text{display:block}
+body.ar [dir]{dir:rtl}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;background:rgba(253,250,245,0.95);backdrop-filter:blur(16px);padding:0 48px;height:64px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(155,117,32,0.1)}
+.nav-brand{display:flex;flex-direction:column;line-height:1.1}
+.nav-name{font-family:var(--font-display);font-size:19px;font-weight:700;color:var(--accent);letter-spacing:0.3px}
+.nav-sub{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:32px}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:12px;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:color 0.2s;border:none;background:none;font-family:inherit}
+.nav-links a:hover{color:var(--accent)}
+.lang-toggle{display:flex;border:1px solid rgba(155,117,32,0.3);border-radius:20px;overflow:hidden}
+.lang-btn{padding:5px 14px;font-size:11px;font-weight:500;letter-spacing:0.8px;cursor:pointer;border:none;background:transparent;color:var(--muted);font-family:var(--font-en);transition:all 0.2s}
+.lang-btn.active{background:var(--accent);color:#fff}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center;padding:80px 48px 60px;gap:60px;max-width:1200px;margin:0 auto}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.hero-line{width:32px;height:2px;background:var(--accent)}
+.hero-tag{font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent)}
+.hero-name{font-family:var(--font-display);font-size:72px;font-weight:700;line-height:1.0;color:var(--deep);margin-bottom:8px}
+body.ar .hero-name{font-family:var(--font-ar);font-size:58px;font-weight:700}
+.hero-name-ar{font-family:var(--font-ar);font-size:58px;font-weight:700;line-height:1.1;color:var(--deep);margin-bottom:8px;display:none}
+body.ar .hero-name-ar{display:block}
+body.ar .hero-name{display:none}
+.hero-title-txt{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--accent);margin-bottom:20px;font-style:italic}
+body.ar .hero-title-txt{font-family:var(--font-ar);font-style:normal;font-size:18px}
+.hero-desc{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:36px;max-width:480px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-main{padding:13px 28px;background:var(--accent);color:#fff;border:none;border-radius:3px;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:inherit;transition:background 0.2s}
+.btn-main:hover{background:#7a5c18}
+.btn-ghost{padding:12px 28px;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:3px;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:inherit;transition:all 0.2s}
+.btn-ghost:hover{background:rgba(155,117,32,0.06)}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-photo-wrap{position:relative;width:400px;height:480px}
+.hero-bg-rect{position:absolute;width:370px;height:440px;background:var(--warm);border-radius:4px;bottom:0;right:0}
+.hero-photo{width:370px;height:440px;object-fit:cover;object-position:top center;border-radius:4px;position:absolute;top:0;left:0;z-index:2}
+.hero-badge{position:absolute;bottom:20px;left:-30px;z-index:4;background:var(--white);border:1px solid rgba(155,117,32,0.15);border-radius:6px;padding:16px 20px;box-shadow:0 8px 32px rgba(0,0,0,0.08);min-width:140px}
+.badge-num{font-family:var(--font-display);font-size:30px;font-weight:700;color:var(--accent);line-height:1}
+.badge-txt{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+.h-stat{background:var(--sand);padding:14px 16px;border-radius:3px;border-left:3px solid var(--accent)}
+body.ar .h-stat{border-left:none;border-right:3px solid var(--accent)}
+.h-stat-n{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--accent)}
+.h-stat-l{font-size:11px;color:var(--muted);line-height:1.4}
+
+/* SECTIONS */
+.section{padding:80px 48px;max-width:1200px;margin:0 auto}
+.section-bg{background:var(--sand)}
+.section-bg .section{background:transparent}
+.sec-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.sec-line{width:24px;height:2px;background:var(--accent2)}
+.sec-label{font-size:10px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent2)}
+.sec-title{font-family:var(--font-display);font-size:42px;font-weight:700;color:var(--deep);margin-bottom:40px;line-height:1.1}
+body.ar .sec-title{font-family:var(--font-ar);font-size:34px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-p{font-size:15px;line-height:1.9;color:var(--text);margin-bottom:16px}
+.langs-grid{display:flex;flex-direction:column;gap:0;margin-top:24px;border:1px solid var(--warm);border-radius:4px;overflow:hidden}
+.lang-row{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:var(--white);border-bottom:1px solid var(--warm)}
+.lang-row:last-child{border-bottom:none}
+.lang-n{font-size:14px;font-weight:500;color:var(--deep)}
+.lang-lvl{font-size:11px;color:var(--accent);background:rgba(155,117,32,0.09);padding:4px 12px;border-radius:20px;font-weight:500;letter-spacing:0.3px}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:40px}
+.skill-card{background:var(--white);padding:22px;border-radius:4px;border:1px solid rgba(155,117,32,0.1);transition:transform 0.2s,box-shadow 0.2s}
+.skill-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.07)}
+.sk-icon{font-size:22px;color:var(--accent2);margin-bottom:12px}
+.sk-name{font-size:14px;font-weight:500;color:var(--deep);margin-bottom:4px}
+.sk-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.tools-label{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.tools-wrap{display:flex;flex-wrap:wrap;gap:8px}
+.tool-chip{padding:7px 16px;background:var(--sand);border:1px solid rgba(155,117,32,0.12);border-radius:20px;font-size:12px;color:var(--text);font-weight:400}
+
+/* PROJECTS */
+.proj-card{background:var(--white);border:1px solid rgba(155,117,32,0.1);border-radius:6px;margin-bottom:24px;overflow:hidden;transition:box-shadow 0.2s}
+.proj-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.07)}
+.proj-imgs{display:grid;gap:2px;background:var(--warm)}
+.proj-imgs.cols-3{grid-template-columns:repeat(3,1fr)}
+.proj-imgs.cols-2{grid-template-columns:repeat(2,1fr)}
+.proj-imgs.cols-4{grid-template-columns:repeat(4,1fr)}
+.proj-img{width:100%;height:200px;object-fit:cover;object-position:top center;display:block;background:var(--warm)}
+.proj-body{padding:28px 32px}
+.proj-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;gap:20px}
+.proj-name{font-family:var(--font-display);font-size:24px;font-weight:700;color:var(--deep);line-height:1.2}
+body.ar .proj-name{font-family:var(--font-ar);font-size:20px}
+.proj-year{font-size:12px;color:var(--muted);white-space:nowrap;padding-top:4px}
+.proj-desc{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:18px}
+.proj-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.p-tag{font-size:11px;color:var(--accent2);background:rgba(74,122,96,0.1);padding:4px 12px;border-radius:20px;font-weight:500}
+.proj-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;border:1px solid rgba(155,117,32,0.3);padding:8px 18px;border-radius:3px;transition:all 0.2s;margin-right:10px;margin-top:4px}
+body.ar .proj-link{margin-right:0;margin-left:10px}
+.proj-link:hover{background:rgba(155,117,32,0.06)}
+
+/* VIDEO GRID */
+.video-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:16px}
+.v-link{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--sand);border-radius:4px;text-decoration:none;color:var(--text);font-size:12px;font-weight:500;border:1px solid rgba(155,117,32,0.1);transition:all 0.2s}
+.v-link:hover{background:var(--warm);border-color:rgba(155,117,32,0.25)}
+.v-link .ti{font-size:16px;color:var(--accent)}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:160px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid var(--warm)}
+body.ar .exp-item{grid-template-columns:1fr 160px}
+.exp-period{font-size:12px;color:var(--muted);line-height:1.6;padding-top:3px}
+.exp-role{font-size:16px;font-weight:500;color:var(--deep);margin-bottom:4px}
+.exp-place{font-size:13px;color:var(--accent2);margin-bottom:10px}
+.exp-detail{font-size:13px;color:var(--muted);line-height:1.75}
+
+/* EDUCATION */
+.edu-list{display:flex;flex-direction:column;gap:0}
+.edu-item{display:grid;grid-template-columns:160px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid var(--warm)}
+body.ar .edu-item{grid-template-columns:1fr 160px}
+.edu-yr{font-size:12px;color:var(--muted);padding-top:3px}
+.edu-deg{font-size:16px;font-weight:500;color:var(--deep);margin-bottom:4px}
+.edu-place{font-size:13px;color:var(--accent2);margin-bottom:8px}
+.edu-badge{display:inline-block;font-size:11px;color:var(--accent);background:rgba(155,117,32,0.09);padding:4px 12px;border-radius:20px;font-weight:500}
+
+/* ACHIEVEMENTS */
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.ach-card{background:var(--white);border:1px solid rgba(155,117,32,0.1);border-radius:4px;padding:24px;position:relative;overflow:hidden;transition:transform 0.2s}
+.ach-card:hover{transform:translateY(-3px)}
+.ach-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent)}
+body.ar .ach-card::before{left:auto;right:0}
+.ach-yr{font-size:11px;color:var(--muted);margin-bottom:10px;letter-spacing:0.5px}
+.ach-title{font-size:14px;font-weight:500;color:var(--deep);line-height:1.5;margin-bottom:8px}
+.ach-desc{font-size:12px;color:var(--muted);line-height:1.65}
+
+/* COURSES */
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.course-card{padding:20px;background:var(--white);border-radius:4px;border:1px solid rgba(155,117,32,0.1)}
+.c-org{font-size:10px;color:var(--accent);font-weight:500;letter-spacing:0.8px;margin-bottom:6px;text-transform:uppercase}
+.c-name{font-size:14px;font-weight:500;color:var(--deep);line-height:1.4}
+.c-yr{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* CONTACT */
+.contact-section{background:var(--deep);padding:80px 48px;text-align:center}
+.contact-title{font-family:var(--font-display);font-size:48px;font-weight:700;color:rgba(255,255,255,0.95);margin-bottom:12px}
+body.ar .contact-title{font-family:var(--font-ar);font-size:38px}
+.contact-sub{font-size:14px;color:rgba(255,255,255,0.45);margin-bottom:40px}
+.contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.c-link{display:flex;align-items:center;gap:8px;padding:13px 24px;border:1px solid rgba(255,255,255,0.15);border-radius:3px;color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;transition:all 0.2s}
+.c-link:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.3)}
+.c-link .ti{font-size:16px}
+
+/* FOOTER */
+.footer{background:var(--deep);border-top:1px solid rgba(255,255,255,0.06);padding:20px 48px;display:flex;justify-content:space-between;align-items:center}
+.footer-txt{font-size:12px;color:rgba(255,255,255,0.3)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav{padding:0 24px}
+  .hero{grid-template-columns:1fr;padding:80px 24px 50px;gap:40px}
+  .hero-visual{justify-content:center}
+  .about-grid{grid-template-columns:1fr}
+  .section{padding:60px 24px}
+  .exp-item,.edu-item{grid-template-columns:1fr;gap:8px}
+  .contact-section{padding:60px 24px}
+  .footer{padding:16px 24px;flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="nav-name">Darien Ashraf</span>
+    <span class="nav-sub en-text">Portfolio</span>
+    <span class="nav-sub ar-text">ملف أعمال</span>
+  </div>
+  <div class="nav-right">
+<script>
+function setLang(lang){
+  const body = document.body;
+  const btnEn = document.getElementById('btn-en');
+  const btnAr = document.getElementById('btn-ar');
+
+  if(lang === 'ar'){
+    body.classList.add('ar');
+    body.setAttribute('dir','rtl');
+    document.documentElement.setAttribute('lang','ar');
+    document.documentElement.setAttribute('dir','rtl');
+
+    btnAr.classList.add('active');
+    btnEn.classList.remove('active');
+  } else {
+    body.classList.remove('ar');
+    body.setAttribute('dir','ltr');
+    document.documentElement.setAttribute('lang','en');
+    document.documentElement.setAttribute('dir','ltr');
+
+    btnEn.classList.add('active');
+    btnAr.classList.remove('active');
+  }
+}
+
+/* Smooth Scroll */
+document.querySelectorAll('.nav-links a').forEach(link => {
+
+  link.addEventListener('click', function(e){
+
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href');
+
+    const targetSection = document.querySelector(targetId);
+
+    if(targetSection){
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+  });
+
+});
+</script>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عر</button>
+    </div>
+  </div>
+</nav>
+
+<section style="background:var(--light)">
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">
+      <div class="hero-line"></div>
+      <span class="hero-tag en-text">Tourism · Heritage · Digital Creator</span>
+      <span class="hero-tag ar-text">سياحة · تراث · محتوى رقمي</span>
+    </div>
+    <div class="hero-name">Darien<br>Ashraf</div>
+    <div class="hero-name-ar">دارين<br>أشرف</div>
+    <div class="hero-title-txt">
+      <span class="en-text">Tourist Guidance Department & Digital Innovation</span>
+      <span class="ar-text">قسم الإرشاد السياحي وابتكار رقمي</span>
+    </div>
+    <p class="hero-desc">
+      <span class="en-text">Tourist Guidance Department graduate (Honors) & Master's candidate at Suez Canal University. I bridge cultural heritage with digital storytelling — designing apps, creating AI-powered videos, and building tools that make Egypt's history accessible to the world.</span>
+      <span class="ar-text">خريجة قسم الإرشاد السياحي بمرتبة الشرف وطالبة ماجستير في جامعة قناة السويس. أربط التراث الثقافي بالسرد الرقمي — أصمم تطبيقات، وأنتج محتوى بالذكاء الاصطناعي، وأبني أدوات تجعل تاريخ مصر في متناول العالم.</span>
+    </p>
+    <div class="hero-btns">
+      <a href="https://www.linkedin.com/in/darien-ashraf-bb3240305" target="_blank" class="btn-main">
+        <i class="ti ti-brand-linkedin"></i>
+        <span class="en-text">LinkedIn</span><span class="ar-text">لينكد إن</span>
+      </a>
+      <a href="https://wa.me/201152426349" target="_blank" class="btn-ghost">
+        <i class="ti ti-brand-whatsapp"></i>
+        <span class="en-text">WhatsApp</span><span class="ar-text">واتساب</span>
+      </a>
+      <a href="mailto:darienashraf2002@gmail.com" class="btn-ghost">
+        <i class="ti ti-mail"></i>
+        <span class="en-text">Email</span><span class="ar-text">إيميل</span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-stat-n">2×</div><div class="h-stat-l"><span class="en-text">Conference Award Winner</span><span class="ar-text">فائزة بجائزتي مؤتمر</span></div></div>
+      <div class="h-stat"><div class="h-stat-n">4</div><div class="h-stat-l"><span class="en-text">Languages</span><span class="ar-text">لغات</span></div></div>
+      <div class="h-stat"><div class="h-stat-n">امتياز</div><div class="h-stat-l"><span class="en-text">Pre-Master's Grade</span><span class="ar-text">تقدير التمهيدي</span></div></div>
+      <div class="h-stat"><div class="h-stat-n">6+</div><div class="h-stat-l"><span class="en-text">Certified Courses</span><span class="ar-text">شهادة تدريبية</span></div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-photo-wrap">
+      <div class="hero-bg-rect"></div>
+      <img src="20260413_205939-IMG_STYLE.jpg" alt="Darien Ashraf" class="hero-photo" onerror="this.style.display='none'"/>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="section-bg" id="about">
+<div class="section">
+  <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label en-text">Who I am</span><span class="sec-label ar-text">من أنا</span></div>
+  <div class="sec-title"><span class="en-text">About Me</span><span class="ar-text">عني</span></div>
+  <div class="about-grid">
+    <div>
+      <p class="about-p">
+        <span class="en-text">I'm a Tourist Guidance Department graduate from Suez Canal University, honored with a <strong>Very Good with Honors</strong> bachelor's degree and an <strong>Excellent</strong> pre-master's grade — currently working toward my Master's thesis.</span>
+        <span class="ar-text">خريجة قسم الإرشاد السياحي من جامعة قناة السويس بتقدير <strong>جيد جداً مع مرتبة الشرف</strong> في البكالوريوس، و<strong>امتياز</strong> في التمهيدي — وحالياً أعمل على رسالة الماجستير.</span>
+      </p>
+      <p class="about-p">
+        <span class="en-text">My work lives at the intersection of cultural heritage and technology: designing mobile app UIs for Islamic monuments, producing AI-generated conference videos, creating 360° virtual tours, and managing social media for an academic faculty.</span>
+        <span class="ar-text">عملي يجمع بين التراث الثقافي والتكنولوجيا: تصميم واجهات تطبيقات للمواقع الإسلامية، وإنتاج فيديوهات بالذكاء الاصطناعي، وإنشاء جولات افتراضية 360°، وإدارة صفحات التواصل الاجتماعي الأكاديمية.</span>
+      </p>
+      <p class="about-p">
+        <span class="en-text">I speak three languages besides Arabic, build with AI tools daily, and believe that storytelling — through documentary, virtual tour, or a well-crafted reel — is the most powerful bridge between people and culture.</span>
+        <span class="ar-text">أتحدث ثلاث لغات بجانب العربية، وأستخدم أدوات الذكاء الاصطناعي يومياً، وأؤمن أن السرد القصصي — سواء بوثائقي أو جولة افتراضية أو ريل — هو الجسر الأقوى بين الناس والثقافة.</span>
+      </p>
+      <div class="langs-grid" style="margin-top:28px">
+        <div class="lang-row"><span class="lang-n"><span class="en-text">Arabic</span><span class="ar-text">العربية</span></span><span class="lang-lvl"><span class="en-text">Native</span><span class="ar-text">لغة أم</span></span></div>
+        <div class="lang-row"><span class="lang-n"><span class="en-text">English</span><span class="ar-text">الإنجليزية</span></span><span class="lang-lvl">B2</span></div>
+        <div class="lang-row"><span class="lang-n"><span class="en-text">German</span><span class="ar-text">الألمانية</span></span><span class="lang-lvl">A1</span></div>
+        <div class="lang-row"><span class="lang-n"><span class="en-text">Chinese (Mandarin)</span><span class="ar-text">الصينية (ماندرين)</span></span><span class="lang-lvl">HSK 3</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-eyebrow" style="margin-bottom:10px"><div class="sec-line"></div><span class="sec-label en-text">Education</span><span class="sec-label ar-text">التعليم</span></div>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-yr">2025 – 2028</div>
+          <div>
+            <div class="edu-deg"><span class="en-text">Master's Degree (In Progress)</span><span class="ar-text">ماجستير (جارٍ)</span></div>
+            <div class="edu-place"><span class="en-text">Faculty of Tourism & Hotels, Suez Canal University</span><span class="ar-text">كلية السياحة والفنادق، جامعة قناة السويس</span></div>
+            <span class="edu-badge"><span class="en-text">Pre-Master: Excellent</span><span class="ar-text">تمهيدي: امتياز</span></span>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-yr">2020 – 2024</div>
+          <div>
+            <div class="edu-deg"><span class="en-text">B.Sc. Tourism & Hotel Management — Tourist Guidance Department</span><span class="ar-text">بكالوريوس سياحة وفنادق — قسم الإرشاد السياحي</span></div>
+            <div class="edu-place"><span class="en-text">Suez Canal University, Ismailia</span><span class="ar-text">جامعة قناة السويس، الإسماعيلية</span></div>
+            <span class="edu-badge"><span class="en-text">Very Good with Honors</span><span class="ar-text">جيد جداً مع مرتبة الشرف</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section" id="skills">
+  <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label en-text">What I do</span><span class="sec-label ar-text">ما أفعله</span></div>
+  <div class="sec-title"><span class="en-text">Skills & Tools</span><span class="ar-text">المهارات والأدوات</span></div>
+  <div class="skills-grid">
+    <div class="skill-card"><i class="ti ti-device-mobile sk-icon"></i><div class="sk-name"><span class="en-text">UI/UX Design</span><span class="ar-text">تصميم واجهات</span></div><div class="sk-desc"><span class="en-text">Figma, wireframing, prototyping, user research</span><span class="ar-text">فيجما، نماذج أولية، بحث مستخدمين</span></div></div>
+    <div class="skill-card"><i class="ti ti-video sk-icon"></i><div class="sk-name"><span class="en-text">Video Production</span><span class="ar-text">إنتاج فيديو</span></div><div class="sk-desc"><span class="en-text">Filming, editing, CapCut, AI avatars, voiceover</span><span class="ar-text">تصوير، مونتاج، أفاتار AI، تعليق صوتي</span></div></div>
+    <div class="skill-card"><i class="ti ti-robot sk-icon"></i><div class="sk-name"><span class="en-text">AI Tools</span><span class="ar-text">أدوات الذكاء الاصطناعي</span></div><div class="sk-desc"><span class="en-text">Claude, ChatGPT, Gemini, InVideo AI, Canva AI</span><span class="ar-text">كلود، تشات جي بي تي، جيميني، إن فيديو</span></div></div>
+    <div class="skill-card"><i class="ti ti-building-monument sk-icon"></i><div class="sk-name"><span class="en-text">Heritage & Tourism</span><span class="ar-text">تراث وسياحة</span></div><div class="sk-desc"><span class="en-text">Islamic monuments, 360° virtual tours, digitisation</span><span class="ar-text">مواقع إسلامية، جولات 360°، رقمنة تراث</span></div></div>
+    <div class="skill-card"><i class="ti ti-brand-instagram sk-icon"></i><div class="sk-name"><span class="en-text">Social Media</span><span class="ar-text">وسائل التواصل</span></div><div class="sk-desc"><span class="en-text">Content strategy, reels, Facebook page management</span><span class="ar-text">استراتيجية محتوى، ريلز، إدارة صفحات</span></div></div>
+    <div class="skill-card"><i class="ti ti-presentation sk-icon"></i><div class="sk-name"><span class="en-text">Public Speaking</span><span class="ar-text">خطابة وتقديم</span></div><div class="sk-desc"><span class="en-text">Conference hosting, research presentation, voiceover</span><span class="ar-text">إدارة مؤتمرات، تقديم بحثي، صوت احترافي</span></div></div>
+  </div>
+  <div class="tools-label en-text">Daily toolkit</div>
+  <div class="tools-label ar-text">الأدوات اليومية</div>
+  <div class="tools-wrap">
+    <span class="tool-chip">Figma</span><span class="tool-chip">CapCut</span><span class="tool-chip">Canva</span><span class="tool-chip">Claude</span><span class="tool-chip">ChatGPT</span><span class="tool-chip">Gemini</span><span class="tool-chip">Perplexity</span><span class="tool-chip">InVideo AI</span><span class="tool-chip">NotebookLM</span><span class="tool-chip">DeepSeek</span><span class="tool-chip">Google Teachable Machine</span><span class="tool-chip">Replit</span><span class="tool-chip">Locos</span><span class="tool-chip">Adobe Photoshop</span><span class="tool-chip">Adobe Illustrator</span><span class="tool-chip">HTML & CSS</span><span class="tool-chip">Bootstrap</span><span class="tool-chip">Artlist</span>
+  </div>
+</div>
+
+<div class="section-bg" id="projects">
+<div class="section">
+  <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label en-text">What I've built</span><span class="sec-label ar-text">ما صنعته</span></div>
+  <div class="sec-title"><span class="en-text">Projects</span><span class="ar-text">المشاريع</span></div>
+
+  <div class="proj-card">
+    <div class="proj-body" style="padding-top:32px">
+      <div class="proj-head">
+        <div class="proj-name"><span class="en-text">A No-Code Machine Learning Approach for Islamic Architectural Heritage</span><span class="ar-text">منهجية تعلم آلي بدون كود لتوثيق التراث المعماري الإسلامي</span></div>
+        <div class="proj-year">Apr 27, 2026</div>
+      </div>
+      <p class="proj-desc">
+        <span class="en-text">Presented at the 7th Postgraduate Studies Conference. Research focuses on the Classification and Digital Documentation of Islamic Architectural Heritage. Case Study: Mosque of Aḥmad ibn Ṭūlūn and Qalāwūn Complex.</span>
+        <span class="ar-text">بحث مقدم في مؤتمر الدراسات العليا السابع. يركز على تصنيف والتوثيق الرقمي للتراث المعماري الإسلامي. دراسة حالة: جامع أحمد بن طولون ومجموعة قلاوون.</span>
+      </p>
+      <div class="proj-tags">
+        <span class="p-tag">Machine Learning</span><span class="p-tag">No-Code AI</span><span class="p-tag"><span class="en-text">Digital Documentation</span><span class="ar-text">التوثيق الرقمي</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-imgs cols-3">
+      <img class="proj-img" src="Screenshot_20260509_022322_Chrome.jpg" alt="Islamjia splash screen" onerror="this.style.display='none'"/>
+      <img class="proj-img" src="Screenshot_20260509_022334_Chrome.jpg" alt="Islamjia home screen" onerror="this.style.display='none'"/>
+      <img class="proj-img" src="Screenshot_20260509_022344_Chrome.jpg" alt="Islamjia map" onerror="this.style.display='none'"/>
+    </div>
+    <div class="proj-body">
+      <div class="proj-head">
+        <div class="proj-name"><span class="en-text">Islamjia — App UI & Documentary</span><span class="ar-text">إسلامجيا — واجهة تطبيق ووثائقي</span></div>
+        <div class="proj-year">2023 – 2024</div>
+      </div>
+      <p class="proj-desc">
+        <span class="en-text">Designed the complete UI for a mobile application combining "Islam" and "nostalgia" — providing information about Islamic Egyptian monuments including GPS locations, Qibla direction, facility availability (washrooms, halal food), hotels, and travel packages. Also created an accompanying documentary. Supervised by two professors at SCU.</span>
+        <span class="ar-text">صممت واجهة المستخدم الكاملة لتطبيق يجمع بين "الإسلام" و"النوستالجيا" — يوفر معلومات عن المواقع الأثرية الإسلامية في مصر تشمل المواقع الجغرافية، واتجاه القبلة، والمرافق (دورات مياه وأماكن حلال)، والفنادق وباقات السفر. وأنتجت وثائقياً مرافقاً. تحت إشراف أستاذتين من جامعة قناة السويس.</span>
+      </p>
+      <div class="proj-tags">
+        <span class="p-tag">Figma</span><span class="p-tag">UI/UX</span><span class="p-tag"><span class="en-text">Cultural Heritage</span><span class="ar-text">تراث ثقافي</span></span><span class="p-tag"><span class="en-text">Documentary</span><span class="ar-text">وثائقي</span></span>
+      </div>
+      <a href="https://www.figma.com/proto/QoBRC3Y5MF0sYQy3r91poJ/Untitled?page-id=0%3A1&node-id=354-792" target="_blank" class="proj-link">
+        <i class="ti ti-external-link"></i><span class="en-text">View Figma Prototype</span><span class="ar-text">شاهد النموذج</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-imgs cols-3">
+      <img class="proj-img" src="Screenshot_20260509_045801_Facebook.jpg" alt="Quotouf Branding" onerror="this.style.display='none'"/>
+      <img class="proj-img" src="Screenshot_20260509_045546_Facebook.jpg" alt="Darkenz Collection" onerror="this.style.display='none'"/>
+      <img class="proj-img" src="Screenshot_20260509_045727_Facebook.jpg" alt="Islamjia Post" onerror="this.style.display='none'"/>
+    </div>
+    <div class="proj-body">
+      <div class="proj-head">
+        <div class="proj-name"><span class="en-text">Digital Branding & Content Creation</span><span class="ar-text">الهوية الرقمية وصناعة المحتوى</span></div>
+        <div class="proj-year">2025 – 2026</div>
+      </div>
+      <p class="proj-desc">
+        <span class="en-text">Managed the digital identity, product photography, and copywriting for boutique brands like Quotouf (luxury choco-dates) and Darkenz (stationery & cards), as well as content for the Islamjia project. Focusing on a "Quiet Luxury" aesthetic and engaging storytelling.</span>
+        <span class="ar-text">إدارة الهوية الرقمية، وتصوير المنتجات، وكتابة المحتوى لعلامات تجارية مثل قطوف و Darkenz، إلى جانب محتوى مشروع إسلامجيا. مع التركيز على الجمالية الفاخرة والسرد الجذاب.</span>
+      </p>
+      <div class="proj-tags">
+        <span class="p-tag">Social Media</span><span class="p-tag">Copywriting</span><span class="p-tag">Brand Identity</span>
+      </div>
+      <div class="video-links" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));">
+        <a href="https://www.facebook.com/share/1HLLS7r6Da/" target="_blank" class="v-link" style="justify-content:center"><i class="ti ti-brand-facebook"></i><span class="en-text">Quotouf Project</span><span class="ar-text">مشروع قطوف</span></a>
+        <a href="https://www.facebook.com/share/18aQnXfTqY/" target="_blank" class="v-link" style="justify-content:center"><i class="ti ti-brand-facebook"></i><span class="en-text">Darkenz Project</span><span class="ar-text">مشروع داركنز</span></a>
+        <a href="https://www.facebook.com/share/18LSxV3vUG/" target="_blank" class="v-link" style="justify-content:center"><i class="ti ti-brand-facebook"></i><span class="en-text">Islamjia Project</span><span class="ar-text">مشروع إسلامجيا</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-imgs cols-4">
+      <img class="proj-img" src="Screenshot_20260419_052408_Chrome.jpg" alt="Twin Finder home" onerror="this.style.display='none'"/>
+      <img class="proj-img" src="Screenshot_20260419_052417_Chrome.jpg" alt="Twin Finder upload" onerror="this.style.display='none'"/>
+      <img class="proj-img" src="Screenshot_20260419_052425_Chrome.jpg" alt="Twin Finder analyzing" onerror="this.style.display='none'"/>
+      <img class="proj-img" src="Screenshot_20260419_052448_Chrome.jpg" alt="Twin Finder results" onerror="this.style.display='none'"/>
+    </div>
+    <div class="proj-body">
+      <div class="proj-head">
+        <div class="proj-name"><span class="en-text">Architectural Twin Finder — Replit App</span><span class="ar-text">Architectural Twin Finder — تطبيق Replit</span></div>
+        <div class="proj-year">2026</div>
+      </div>
+      <p class="proj-desc">
+        <span class="en-text">A full mobile application built on Replit that uses AI vision to identify architectural connections between Islamic monuments across history — from Egypt to Andalusia, Persia to Central Asia. Upload a monument photo and it finds its "architectural twin," showing detailed comparisons of style, materials, minarets, domes, and historical context.</span>
+        <span class="ar-text">تطبيق موبايل كامل بُني على Replit يستخدم رؤية الذكاء الاصطناعي للكشف عن الروابط المعمارية بين المواقع الإسلامية عبر التاريخ — من مصر إلى الأندلس، ومن فارس إلى آسيا الوسطى. ارفع صورة موقع أثري ويجد له "التوأم المعماري" مع مقارنة تفصيلية.</span>
+      </p>
+      <div class="proj-tags">
+        <span class="p-tag">Replit</span><span class="p-tag">AI Vision</span><span class="p-tag"><span class="en-text">Islamic Architecture</span><span class="ar-text">عمارة إسلامية</span></span><span class="p-tag"><span class="en-text">Mobile App</span><span class="ar-text">تطبيق موبايل</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-body" style="padding-top:32px">
+      <div class="proj-head">
+        <div class="proj-name"><span class="en-text">AI Image Classifier — Google Teachable Machine</span><span class="ar-text">مصنّف صور بالذكاء الاصطناعي</span></div>
+        <div class="proj-year">2026</div>
+      </div>
+      <p class="proj-desc">
+        <span class="en-text">Trained and deployed a working image classification model using Google Teachable Machine, capable of recognizing Egyptian archaeological sites from photos. A practical application of machine learning in cultural heritage preservation.</span>
+        <span class="ar-text">دربت ونشرت نموذج تصنيف صور باستخدام Google Teachable Machine قادراً على التعرف على المواقع الأثرية المصرية من الصور — تطبيق عملي للتعلم الآلي في حفظ التراث.</span>
+      </p>
+      <div class="proj-tags">
+        <span class="p-tag">Google Teachable Machine</span><span class="p-tag">AI / ML</span><span class="p-tag"><span class="en-text">Heritage Recognition</span><span class="ar-text">تصنيف مواقع أثرية</span></span>
+      </div>
+      <a href="https://teachablemachine.withgoogle.com/models/LmxgD2pAM/" target="_blank" class="proj-link">
+        <i class="ti ti-external-link"></i><span class="en-text">Try the Live Model</span><span class="ar-text">جرّب النموذج</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-body" style="padding-top:32px">
+      <div class="proj-head">
+        <div class="proj-name"><span class="en-text">Video Portfolio — Reels, Documentaries & Conference Content</span><span class="ar-text">أعمال الفيديو — ريلز ووثائقيات ومؤتمرات</span></div>
+        <div class="proj-year">2023 – 2026</div>
+      </div>
+      <p class="proj-desc">
+        <span class="en-text">A collection of produced videos: faculty promotional reels, AI-generated avatar conference teasers, voiceover-narrated heritage documentaries, and event coverage — all filmed, edited, and/or voiced personally.</span>
+        <span class="ar-text">مجموعة فيديوهات منتجة: ريلز ترويجية للكلية، إعلانات مؤتمرات بأفاتار AI، وثائقيات تراثية بتعليق صوتي، وتغطيات فعاليات — كلها تصوير ومونتاج وصوت شخصي.</span>
+      </p>
+      <div class="proj-tags">
+        <span class="p-tag">CapCut</span><span class="p-tag">InVideo AI</span><span class="p-tag"><span class="en-text">Voiceover</span><span class="ar-text">صوت احترافي</span></span><span class="p-tag"><span class="en-text">AI Avatar</span><span class="ar-text">أفاتار AI</span></span>
+      </div>
+      <div class="video-links">
+        <a href="https://www.facebook.com/share/v/1LoTR1MH9S/" target="_blank" class="v-link"><i class="ti ti-player-play"></i><span class="en-text">Faculty Showcase</span><span class="ar-text">فيديو الكلية</span></a>
+        <a href="https://www.facebook.com/share/v/1FsvxSgu8z/" target="_blank" class="v-link"><i class="ti ti-player-play"></i><span class="en-text">Heritage Reel</span><span class="ar-text">ريل تراثي</span></a>
+        <a href="https://www.facebook.com/share/v/1AG4FfLhyc/" target="_blank" class="v-link"><i class="ti ti-player-play"></i><span class="en-text">Conference Coverage</span><span class="ar-text">تغطية مؤتمر</span></a>
+        <a href="https://www.facebook.com/share/v/1CSox2xeEr/" target="_blank" class="v-link"><i class="ti ti-player-play"></i><span class="en-text">Edited Documentary</span><span class="ar-text">وثائقي معدّل</span></a>
+        <a href="https://www.facebook.com/share/v/1D9eMvLLCj/" target="_blank" class="v-link"><i class="ti ti-player-play"></i><span class="en-text">Video Montage</span><span class="ar-text">مونتاج</span></a>
+        <a href="https://www.facebook.com/share/v/1CS2eZFEB5/" target="_blank" class="v-link"><i class="ti ti-player-play"></i><span class="en-text">Collaborative Edit</span><span class="ar-text">مونتاج مشترك</span></a>
+        <a href="https://youtu.be/jlE2ES88FVI" target="_blank" class="v-link"><i class="ti ti-microphone"></i><span class="en-text">Voiceover Sample</span><span class="ar-text">نموذج صوتي</span></a>
+        <a href="https://www.facebook.com/share/v/1HTcdAEsr5/" target="_blank" class="v-link"><i class="ti ti-player-play"></i><span class="en-text">Reel 1</span><span class="ar-text">ريل ١</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-body" style="padding-top:32px">
+      <div class="proj-head">
+        <div class="proj-name"><span class="en-text">360° Virtual Tours — Islamic Heritage & Faculty Museum</span><span class="ar-text">جولات افتراضية 360° — التراث الإسلامي ومتحف الكلية</span></div>
+        <div class="proj-year">2024 – 2026</div>
+      </div>
+      <p class="proj-desc">
+        <span class="en-text">Created immersive 360° virtual tours documenting Islamic Heritage, the Faculty Museum and the historic French Quarter in Ismailia.</span>
+        <span class="ar-text">أنشأت جولات افتراضية 360° غامرة لتوثيق التراث الإسلامي، ومتحف الكلية، والحي الفرنسي التاريخي في الإسماعيلية.</span>
+      </p>
+      <div class="proj-tags">
+        <span class="p-tag">360° Photography</span><span class="p-tag"><span class="en-text">Virtual Tour</span><span class="ar-text">جولة افتراضية</span></span><span class="p-tag"><span class="en-text">Digital Heritage</span><span class="ar-text">تراث رقمي</span></span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
+        <a href="https://www.facebook.com/share/v/1CT2kQmrMa/" target="_blank" class="proj-link" style="margin:0;">
+          <i class="ti ti-external-link"></i><span class="en-text">Islamic Heritage Tour - Part 1</span><span class="ar-text">جولة التراث الإسلامي - الجزء الأول</span>
+        </a>
+        <a href="https://www.facebook.com/share/v/18WdDbr8yA/" target="_blank" class="proj-link" style="margin:0;">
+          <i class="ti ti-external-link"></i><span class="en-text">Islamic Heritage Tour - Part 2</span><span class="ar-text">جولة التراث الإسلامي - الجزء الثاني</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="section" id="experience">
+  <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label en-text">Where I've contributed</span><span class="sec-label ar-text">أين أسهمت</span></div>
+  <div class="sec-title"><span class="en-text">Experience</span><span class="ar-text">الخبرة</span></div>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-period"><span class="en-text">Oct 2024 – Feb 2025</span><span class="ar-text">أكتوبر 2024 – فبراير 2025</span></div>
+      <div>
+        <div class="exp-role"><span class="en-text">Social Media & Media Content Coordinator</span><span class="ar-text">منسقة إعلام ووسائل تواصل</span></div>
+        <div class="exp-place"><span class="en-text">Community Service Sector · Faculty of Tourism & Hotels, SCU</span><span class="ar-text">قطاع خدمة المجتمع · كلية السياحة والفنادق، جامعة قناة السويس</span></div>
+        <div class="exp-detail"><span class="en-text">Managed the official Facebook page. Filmed and edited seminars, workshops, and student activities. Created and scheduled posts and reels.</span><span class="ar-text">أدارت الصفحة الرسمية على فيسبوك. صوّرت وعدّلت ندوات وورش عمل وأنشطة طلابية. أنشأت ونشرت بوستات وريلز.</span></div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period"><span class="en-text">Oct 2024</span><span class="ar-text">أكتوبر 2024</span></div>
+      <div>
+        <div class="exp-role"><span class="en-text">AI Video Creator — Conference Teaser</span><span class="ar-text">منتجة فيديو AI — إعلان مؤتمر</span></div>
+        <div class="exp-place"><span class="en-text">14th International Scientific Conference · Association of Arab Tourism Colleges</span><span class="ar-text">المؤتمر العلمي الدولي الـ14 · اتحاد كليات السياحة العربية</span></div>
+        <div class="exp-detail"><span class="en-text">Scripted, produced, and edited an AI-avatar promotional video screened at the Hurghada conference.</span><span class="ar-text">كتبت السكريبت، وأنتجت وعدّلت فيديو ترويجي بأفاتار AI عُرض في مؤتمر الغردقة.</span></div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period"><span class="en-text">Mar 2024</span><span class="ar-text">مارس 2024</span></div>
+      <div>
+        <div class="exp-role"><span class="en-text">Student Conference Presenter</span><span class="ar-text">مقدمة مؤتمر طلابي</span></div>
+        <div class="exp-place"><span class="en-text">7th Student Research Conference · SCU</span><span class="ar-text">المؤتمر البحثي الطلابي السابع · جامعة قناة السويس</span></div>
+        <div class="exp-detail"><span class="en-text">Co-hosted the event, introduced faculty, and announced award recipients.</span><span class="ar-text">شاركت في إدارة الحفل، وقدّمت أعضاء هيئة التدريس، وأعلنت أسماء الفائزين.</span></div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period"><span class="en-text">Apr 2024</span><span class="ar-text">أبريل 2024</span></div>
+      <div>
+        <div class="exp-role"><span class="en-text">Videographer & Editor — Faculty Showcase</span><span class="ar-text">مصوّرة ومحررة — عرض الكلية</span></div>
+        <div class="exp-place"><span class="en-text">Faculty of Tourism & Hotels, SCU</span><span class="ar-text">كلية السياحة والفنادق، جامعة قناة السويس</span></div>
+        <div class="exp-detail"><span class="en-text">Filmed and edited a promotional video using a smartphone — capturing the faculty's atmosphere.</span><span class="ar-text">صوّرت وعدّلت فيديو ترويجي بالهاتف يوثّق جو الكلية ومرافقها.</span></div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period"><span class="en-text">Ongoing</span><span class="ar-text">مستمر</span></div>
+      <div>
+        <div class="exp-role"><span class="en-text">Junior Content Creator</span><span class="ar-text">منشئة محتوى مبتدئة</span></div>
+        <div class="exp-place">Quotouf & Darkenz</div>
+        <div class="exp-detail"><span class="en-text">Assisted with digital content creation, social media ideas, and visual content.</span><span class="ar-text">ساعدت في إنشاء محتوى رقمي وأفكار لوسائل التواصل الاجتماعي والمحتوى البصري.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-bg">
+<div class="section" id="achievements">
+  <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label en-text">Recognition</span><span class="sec-label ar-text">التكريم</span></div>
+  <div class="sec-title"><span class="en-text">Achievements</span><span class="ar-text">الإنجازات</span></div>
+  <div class="ach-grid">
+    <div class="ach-card">
+      <div class="ach-yr"><span class="en-text">May 2024</span><span class="ar-text">مايو 2024</span></div>
+      <div class="ach-title"><span class="en-text">2nd Place — 6th Annual Student Conference</span><span class="ar-text">المركز الثاني — المؤتمر الطلابي السنوي السادس</span></div>
+      <div class="ach-desc"><span class="en-text">Research: "AI-Guided Odyssey: Enhancing Appreciation of Egypt's Islamic Archaeological Wonders" — awarded at humanities college level, SCU.</span><span class="ar-text">بحث: "رحلة بقيادة الذكاء الاصطناعي: تعزيز تقدير روائع مصر الأثرية الإسلامية" — على مستوى كليات الإنسانيات.</span></div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-yr"><span class="en-text">May 2023</span><span class="ar-text">مايو 2023</span></div>
+      <div class="ach-title"><span class="en-text">2nd Place — 6th Annual Student Conference</span><span class="ar-text">المركز الثاني — المؤتمر الطلابي السنوي السادس</span></div>
+      <div class="ach-desc"><span class="en-text">Research: "The Relation Between Headgears' Shape & Minarets' Tops" — awarded at humanities college level.</span><span class="ar-text">بحث: "العلاقة بين شكل الأغطية والمآذن" — على مستوى كليات الإنسانيات.</span></div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-yr"><span class="en-text">Nov 2023</span><span class="ar-text">نوفمبر 2023</span></div>
+      <div class="ach-title"><span class="en-text">Letter of Appreciation — 13th International Conference</span><span class="ar-text">خطاب تقدير — المؤتمر الدولي الـ13</span></div>
+      <div class="ach-desc"><span class="en-text">Recognized by the Association of Arab Tourism Faculties at Porto Sokhna — "Green Economy & Tourism Development in the Arab Region".</span><span class="ar-text">تكريم من اتحاد كليات السياحة العربية في بورتو السخنة — "الاقتصاد الأخضر والتنمية السياحية".</span></div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-yr"><span class="en-text">Mar 2024</span><span class="ar-text">مارس 2024</span></div>
+      <div class="ach-title"><span class="en-text">Conference Organiser — 5th Scientific Postgraduate Conference</span><span class="ar-text">منظّمة مؤتمر — المؤتمر العلمي الخامس لطلاب الدراسات العليا</span></div>
+      <div class="ach-desc"><span class="en-text">"The Role of Digitization in Achieving Tourism Sustainability" — SCU.</span><span class="ar-text">"دور الرقمنة في تحقيق الاستدامة السياحية" — جامعة قناة السويس.</span></div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-yr"><span class="en-text">2020 – 2024</span><span class="ar-text">2020 – 2024</span></div>
+      <div class="ach-title"><span class="en-text">Graduated with Honors</span><span class="ar-text">التخرج بمرتبة الشرف</span></div>
+      <div class="ach-desc"><span class="en-text">Bachelor's — Very Good with Honors, Suez Canal University.</span><span class="ar-text">بكالوريوس — جيد جداً مع مرتبة الشرف، جامعة قناة السويس.</span></div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-yr">2025</div>
+      <div class="ach-title"><span class="en-text">Excellent — Pre-Master's Coursework</span><span class="ar-text">امتياز — مرحلة التمهيدي</span></div>
+      <div class="ach-desc"><span class="en-text">Completed pre-master's courses with an Excellent grade at SCU.</span><span class="ar-text">أتمّت مواد التمهيدي بتقدير امتياز في جامعة قناة السويس.</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="section">
+  <div class="sec-eyebrow"><div class="sec-line"></div><span class="sec-label en-text">Continuous learning</span><span class="sec-label ar-text">التعلم المستمر</span></div>
+  <div class="sec-title"><span class="en-text">Courses & Training</span><span class="ar-text">الدورات والتدريب</span></div>
+  <div class="courses-grid">
+    <div class="course-card">
+      <div class="c-org">MinnaLearn & Google · 2026</div>
+      <div class="c-name"><span class="en-text">Elements of AI for Business</span><span class="ar-text">عناصر الذكاء الاصطناعي للأعمال</span></div>
+      <a href="49565a8f-05ae-40dd-8275-229de692b6a9 (1).png" target="_blank" class="proj-link" style="padding:4px 12px; font-size:11px; margin-top:10px;"><i class="ti ti-certificate"></i> <span class="en-text">View Certificate</span><span class="ar-text">شاهد الشهادة</span></a>
+    </div>
+    <div class="course-card">
+      <div class="c-org"><span class="en-text">Arab Council / Arab Universities · 2025</span><span class="ar-text">المجلس العربي / الجامعات العربية · 2025</span></div>
+      <div class="c-name"><span class="en-text">Preserving Heritage in the Digital Age</span><span class="ar-text">صون التراث في العصر الرقمي</span></div>
+    </div>
+    <div class="course-card">
+      <div class="c-org">TICO, SCU · 2024</div>
+      <div class="c-name"><span class="en-text">Patent & Intellectual Property Seminar</span><span class="ar-text">ندوة الملكية الفكرية وبراءات الاختراع</span></div>
+    </div>
+    <div class="course-card">
+      <div class="c-org">ITIDA – TIEC · 2024</div>
+      <div class="c-name"><span class="en-text">Women Entrepreneurship Training Program (#رائدة_هي)</span><span class="ar-text">برنامج ريادة الأعمال للمرأة (#رائدة_هي)</span></div>
+      <a href="Darien Ashraf Zakaria.jpg" target="_blank" class="proj-link" style="padding:4px 12px; font-size:11px; margin-top:10px;"><i class="ti ti-certificate"></i> <span class="en-text">View Certificate</span><span class="ar-text">شاهد الشهادة</span></a>
+    </div>
+    <div class="course-card">
+      <div class="c-org"><span class="en-text">Reismailia / Presidential Program · Nov 2024</span><span class="ar-text">مبادرة ريسماعيلية / البرنامج الرئاسي · نوفمبر 2024</span></div>
+      <div class="c-name"><span class="en-text">Digital Tourism & 360° Virtual Tour Creation Workshop</span><span class="ar-text">ورشة السياحة الرقمية وإنشاء الجولات الافتراضية 360°</span></div>
+    </div>
+    <div class="course-card">
+      <div class="c-org">Aspire · USAID · AUC · 2024</div>
+      <div class="c-name"><span class="en-text">Employability Skills Track</span><span class="ar-text">مسار مهارات التوظيف</span></div>
+      <a href="20240628_192936.jpg" target="_blank" class="proj-link" style="padding:4px 12px; font-size:11px; margin-top:10px;"><i class="ti ti-certificate"></i> <span class="en-text">View Certificate</span><span class="ar-text">شاهد الشهادة</span></a>
+    </div>
+    <div class="course-card">
+      <div class="c-org"><span class="en-text">Confucius Institute · 2024</span><span class="ar-text">معهد كونفوشيوس · 2024</span></div>
+      <div class="c-name"><span class="en-text">Chinese Language — HSK3</span><span class="ar-text">اللغة الصينية — HSK3</span></div>
+    </div>
+    <div class="course-card">
+      <div class="c-org">ITI · 2022</div>
+      <div class="c-name"><span class="en-text">UI/UX Fundamentals</span><span class="ar-text">أساسيات UI/UX</span></div>
+      <a href="20230626_184916.jpg" target="_blank" class="proj-link" style="padding:4px 12px; font-size:11px; margin-top:10px;"><i class="ti ti-certificate"></i> <span class="en-text">View Certificate</span><span class="ar-text">شاهد الشهادة</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="contact-section" id="contact">
+  <div class="contact-title"><span class="en-text">Let's Connect</span><span class="ar-text">تواصلي معي</span></div>
+  <p class="contact-sub"><span class="en-text">Open to collaborations, research, content projects, and opportunities in tourism & digital heritage.</span><span class="ar-text">مفتوحة للتعاون والبحث ومشاريع المحتوى والفرص في السياحة والتراث الرقمي.</span></p>
+  <div class="contact-links">
+    <a href="mailto:darienashraf2002@gmail.com" class="c-link"><i class="ti ti-mail"></i> darienashraf2002@gmail.com</a>
+    <a href="https://wa.me/201152426349" target="_blank" class="c-link"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
+    <a href="https://www.linkedin.com/in/darien-ashraf-bb3240305" target="_blank" class="c-link"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+    <a href="https://www.facebook.com/share/1DwbS748rp/" target="_blank" class="c-link"><i class="ti ti-brand-facebook"></i> Facebook</a>
+    <a href="https://youtu.be/jlE2ES88FVI" target="_blank" class="c-link"><i class="ti ti-microphone"></i><span class="en-text">Voiceover</span><span class="ar-text">صوت</span></a>
+  </div>
+</div>
+
+<div class="footer">
+  <span class="footer-txt">Darien Ashraf © 2026</span>
+  <span class="footer-txt"><span class="en-text">Tourist Guidance Department · Digital Innovation</span><span class="ar-text">قسم الإرشاد السياحي · ابتكار رقمي</span></span>
+</div>
+
+<script>
+function setLang(lang){
+  const body = document.body;
+  const btnEn = document.getElementById('btn-en');
+  const btnAr = document.getElementById('btn-ar');
+
+  if(lang === 'ar'){
+    body.classList.add('ar');
+    body.setAttribute('dir','rtl');
+    document.documentElement.setAttribute('lang','ar');
+    document.documentElement.setAttribute('dir','rtl');
+
+    btnAr.classList.add('active');
+    btnEn.classList.remove('active');
+  } else {
+    body.classList.remove('ar');
+    body.setAttribute('dir','ltr');
+    document.documentElement.setAttribute('lang','en');
+    document.documentElement.setAttribute('dir','ltr');
+
+    btnEn.classList.add('active');
+    btnAr.classList.remove('active');
+  }
+}
+
+/* Smooth Navigation */
+document.querySelectorAll('.nav-links a').forEach(link => {
+
+  link.addEventListener('click', function(e){
+
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href');
+
+    const targetSection = document.querySelector(targetId);
+
+    if(targetSection){
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+  });
+
+});
+</script>
+</body>
+</html>
